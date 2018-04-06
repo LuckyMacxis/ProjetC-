@@ -29,10 +29,10 @@ template <class Mtype> class CMatrice{
         uiMATnbColonne = uiNbColonne;
         uiMATnbLigne = uiNbLigne;
 
-        pMATmatrice = new *Mtype(uiMATnbColonne);
+        pMATmatrice = new Mtype*[uiMATnbColonne];
 
         for(uiBoucle1 = 0; uiBoucle1 < uiNbColonne; uiBoucle1++){
-            pMATmatrice[uiBoucle1] = new Mtype(uiMATnbLigne);
+            pMATmatrice[uiBoucle1] = new Mtype[uiMATnbLigne];
             
             for(uiBoucle2 = 0; uiBoucle2 < uiNbLigne; uiBoucle2++){
                 pMATmatrice[uiBoucle1][uiBoucle2] = pMatrice[uiBoucle1][uiBoucle2];

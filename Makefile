@@ -1,3 +1,3 @@
-all: CMatrice.h main.cpp
+all: CMatrice.hh main.cpp
 
 	g++ main.cpp -o main.o

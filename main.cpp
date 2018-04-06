@@ -1,11 +1,21 @@
-#include "CMatrice.h"
+#include "CMatrice.hh"
 
 
 int main(){
+    int m = 2;
 
-    int a[2][2] = {1,2,3,4};
+    int **a = new int*[m];
 
-    CMatrice<int> * matrice = new CMatrice<int>(a,2,2);
+    for(int i = 0; i<m;i++){
+        a[i] = new int[2];
+        for(int j = 0; j < 2; j++){
+            a[i][j] = 2;
+        }
+    }
+
+    CMatrice<int> matrice(a,2,2);
+
+    matrice.MATafficherMatrice();
 
     return 0;
 }
