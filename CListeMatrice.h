@@ -3,31 +3,35 @@
 
 #include <vector>
 
-#include "CMatrice.h"
+#include <iostream>
 
+#include <fstream>
+
+#include <string>
+
+using namespace std;
 
 class CListeMatrice {
 
- public:
+public:
+	CListeMatrice();
+	~CListeMatrice();
+	//virtual void LISajouter(CMatrice MATmat);
+	virtual void LISsupprimer(unsigned int uiPosition);
 
-    virtual void LISajouter(CMatrice MATmat);
+	virtual void LISviderListe();
 
-    virtual void LISsupprimer(Integer uiPosition);
-
-    virtual void LISviderListe();
-
-    virtual void LISajouter(void  sChemin);
+	virtual void LISajouter(string  sChemin);
 
 
- private:
-    Integer uiLIStaille;
+private:
+	unsigned int uiLIStaille;
 
- public:
-
-    /**
-     * @element-type CMatrice
-     */
-    std::vector< CMatrice* > myCMatrice;
+	/**
+	 * @element-type CMatrice
+	 */
+	 // std::vector< CMatrice* > myCMatrice;
 };
 
 #endif // CListeMatrice_h
+
