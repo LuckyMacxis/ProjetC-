@@ -73,10 +73,13 @@ template <class Mtype> class CMatrice{
     }
 
     CMatrice<Mtype> operator=(CMatrice<Mtype> &MATmatrice){
+        unsigned int uiBoucle1;
+        unsigned int uiBoucle2;
+
         uiMATnbColonne = MATmatrice.uiMATnbColonne;
         uiMATnbLigne = MATmatrice.uiMATnbLigne;
 
-        if(pMATmatrice != null){
+        if(pMATmatrice != NULL){
             for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++)
             {
                 delete []pMATmatrice[uiBoucle1];

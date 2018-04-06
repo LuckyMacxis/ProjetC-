@@ -5,6 +5,7 @@ int main(){
     int m = 2;
 
     int **a = new int*[m];
+    int **b = new int*[m];
 
     for(int i = 0; i<m;i++){
         a[i] = new int[3];
@@ -13,15 +14,25 @@ int main(){
         }
     }
 
+    for(int i = 0; i<m;i++){
+        b[i] = new int[3];
+        for(int j = 0; j < 3; j++){
+            b[i][j] = 1;
+        }
+    }
+
     CMatrice<int> matrice(a,2,3);
+
+    CMatrice<int> matrice2(b,2,3);
 
     matrice.MATafficherMatrice();
 
-    CMatrice<int> copy(matrice);
+    matrice2.MATafficherMatrice();
 
-    cout << "\n\n";
+    matrice2 = matrice;
 
-    copy.MATafficherMatrice();
+    cout << " = \n";
+    matrice2.MATafficherMatrice();
 
     return 0;
 }
