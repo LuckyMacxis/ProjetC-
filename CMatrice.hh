@@ -50,11 +50,11 @@ template <class Mtype> class CMatrice{
 
         pMATmatrice = new Mtype*[uiMATnbColonne];
 
-        for(uiBoucle1 = 0; uiBoucle1 < uiNbColonne; uiBoucle1++){
+        for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++){
             pMATmatrice[uiBoucle1] = new Mtype[uiMATnbLigne];
             
-            for(uiBoucle2 = 0; uiBoucle2 < uiNbLigne; uiBoucle2++){
-                pMATmatrice[uiBoucle1][uiBoucle2] = MATmatrice[uiBoucle1][uiBoucle2];
+            for(uiBoucle2 = 0; uiBoucle2 < uiMATnbLigne; uiBoucle2++){
+                pMATmatrice[uiBoucle1][uiBoucle2] = MATmatrice.pMATmatrice[uiBoucle1][uiBoucle2];
             }
         }
     }

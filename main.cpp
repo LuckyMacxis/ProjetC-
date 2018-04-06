@@ -17,5 +17,11 @@ int main(){
 
     matrice.MATafficherMatrice();
 
+    CMatrice<int> copy(matrice);
+
+    cout << "\n\n";
+
+    copy.MATafficherMatrice();
+
     return 0;
 }
