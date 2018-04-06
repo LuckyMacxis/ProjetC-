@@ -69,6 +69,29 @@ template <class Mtype> class CMatrice{
                 cout << pMATmatrice[uiBoucle1][uiBoucle2] << "   ";
             }
         }
+        cout << '\n';
+    }
+
+    CMatrice<Mtype> operator=(CMatrice<Mtype> &MATmatrice){
+        uiMATnbColonne = MATmatrice.uiMATnbColonne;
+        uiMATnbLigne = MATmatrice.uiMATnbLigne;
+
+        if(pMATmatrice != null){
+            for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++)
+            {
+                delete []pMATmatrice[uiBoucle1];
+            }
+            delete []pMATmatrice;
+        }
+
+        pMATmatrice = new Mtype*[uiMATnbColonne];
+
+        for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++){
+            pMATmatrice[uiBoucle1] = new Mtype[uiMATnbLigne];
+            for(uiBoucle2 = 0; uiBoucle2 < uiMATnbLigne; uiBoucle2++){
+                pMATmatrice[uiBoucle1][uiBoucle2] = MATmatrice.pMATmatrice[uiBoucle1][uiBoucle2]; 
+            }
+        }
     }
 
    /* CMatrice operator+(CMatrice MATmat);
