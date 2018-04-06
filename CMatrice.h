@@ -8,30 +8,26 @@ class CMatrice {
 
  public:
 
-    virtual CMatrice operator+(CMatrice MATmat);
+    CMatrice operator+(CMatrice MATmat);
 
-    virtual CMatrice operator*(void  dVal, void  MATmat);
+    CMatrice operator*(double  dVal, CMatrice * MATmat);
 
-    virtual CMatrice operator-(CMatrice MATmat);
+    CMatrice operator-(CMatrice * MATmat);
 
-    virtual CMatrice operator/(CMatrice MATmat);
+    CMatrice operator/(CMatrice * MATmat);
 
-    virtual CMatrice operator*(CMatrice MATmat);
+    CMatrice operator*(CMatrice * MATmat);
 
-    virtual CMatrice operator/(void  dVal);
+    CMatrice operator/(double  dVal);
 
-    virtual void MATafficherMatrice();
+    void MATafficherMatrice();
 
-    virtual CMatrice MATtransposee();
+    CMatrice MATtransposee();
+
+    CMatrice operator*(double  dVal);
 
  private:
-
-    virtual CMatrice operator*(void  dVal);
-
- public:
     Integer **pMATmatrice;
-
- private:
     Integer uiMATnbColonne;
     Integer uiMATnbLigne;
 
