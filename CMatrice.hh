@@ -41,7 +41,23 @@ template <class Mtype> class CMatrice{
 
     }
 
-    CMatrice<Mtype>(CMatrice<Mtype> &MATmatrice);
+    CMatrice<Mtype>(CMatrice<Mtype> &MATmatrice){
+        unsigned int uiBoucle1;
+        unsigned int uiBoucle2;
+
+        uiMATnbColonne = MATmatrice.uiMATnbColonne;
+        uiMATnbLigne = MATmatrice.uiMATnbLigne;
+
+        pMATmatrice = new Mtype*[uiMATnbColonne];
+
+        for(uiBoucle1 = 0; uiBoucle1 < uiNbColonne; uiBoucle1++){
+            pMATmatrice[uiBoucle1] = new Mtype[uiMATnbLigne];
+            
+            for(uiBoucle2 = 0; uiBoucle2 < uiNbLigne; uiBoucle2++){
+                pMATmatrice[uiBoucle1][uiBoucle2] = MATmatrice[uiBoucle1][uiBoucle2];
+            }
+        }
+    }
 
     void MATafficherMatrice(){
         unsigned int uiBoucle1;
