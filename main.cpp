@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "CMatrice.hh"
 
 
@@ -36,7 +35,8 @@ int main(){
     matrice2.MATafficherMatrice();
 
     return 0;
-=======
+}
+    /*
 #include "stdafx.h"
 #include "CListeMatrice.h"
 
@@ -46,5 +46,4 @@ int main()
 	Lis = new CListeMatrice();
 	Lis.LISajouter("C:\Users\ZoD\Documents\GitHub\Test");
 	return 0;
->>>>>>> 583d311b88a6062c88226f214b8962dc0e3f16a4
-}
+}*/
