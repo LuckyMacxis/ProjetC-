@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 #include <string.h>
+#include "Exception.hh"
 
 
 template <class Mtype> class CMatrice{
@@ -97,9 +98,19 @@ template <class Mtype> class CMatrice{
         }
     }
 
-   /* CMatrice operator+(CMatrice MATmat);
+    CMatrice<Mtype> operator+(CMatrice<Mtype> MATmat){
+        unsigned int uiBoucle1, uiBoucle2;
+        CMatrice<Mtype> MATresult(*this);
 
-    CMatrice operator*(double  dVal, CMatrice * MATmat);
+        if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
+            throw Ex
+        
+
+
+        return *this;
+    }
+
+    /*CMatrice operator*(double  dVal, CMatrice * MATmat);
 
     CMatrice operator-(CMatrice * MATmat);
 
