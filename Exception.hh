@@ -4,6 +4,9 @@
 using namespace std;
 #include <string.h>
 
+
+#define TAILLE_MATRICE_INVALIDE 1
+
 class CException
 {
     private:

@@ -6,8 +6,6 @@ using namespace std;
 #include <string.h>
 #include "Exception.hh"
 
-#define TAILLE 1
-
 
 
 template <class Mtype> class CMatrice{
@@ -106,7 +104,7 @@ template <class Mtype> class CMatrice{
         CMatrice<Mtype> MATresult(*this);
 
         if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
-            throw CException(TAILLE);
+            throw CException(TAILLE_MATRICE_INVALIDE);
         
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < uiMATnbLigne; uiBoucle2++){
@@ -124,7 +122,7 @@ template <class Mtype> class CMatrice{
         CMatrice<Mtype> MATresult(*this);
 
         if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
-            throw CException(TAILLE);
+            throw CException(TAILLE_MATRICE_INVALIDE);
         
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < uiMATnbLigne; uiBoucle2++){
