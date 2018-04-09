@@ -16,7 +16,7 @@ int main(){
 
     for(int i = 0; i<m;i++){
         b[i] = new int[3];
-        for(int j = 0; j < 2; j++){
+        for(int j = 0; j < 3; j++){
             b[i][j] = 1;
         }
     }
@@ -30,7 +30,7 @@ int main(){
     matrice2.MATafficherMatrice();
 
     try{
-        (matrice + matrice2 + matrice2).MATafficherMatrice();
+        (matrice - matrice2 - matrice2).MATafficherMatrice();
     }catch(CException e){
         e.sEXPmessageException();
     }

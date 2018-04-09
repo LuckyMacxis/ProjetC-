@@ -117,9 +117,25 @@ template <class Mtype> class CMatrice{
         return MATresult;
     }
 
-    /*CMatrice operator*(double  dVal, CMatrice * MATmat);
+    
 
-    CMatrice operator-(CMatrice * MATmat);
+    CMatrice<Mtype> operator-(CMatrice<Mtype> MATmat){
+        unsigned int uiBoucle1, uiBoucle2;
+        CMatrice<Mtype> MATresult(*this);
+
+        if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
+            throw CException(TAILLE);
+        
+        for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++){
+            for(uiBoucle2 = 0; uiBoucle2 < uiMATnbLigne; uiBoucle2++){
+                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle1][uiBoucle2] - MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
+            }
+        }
+        
+        return MATresult;
+    }
+
+    /*CMatrice operator*(double  dVal, CMatrice * MATmat);
 
     CMatrice operator/(CMatrice * MATmat);
 
