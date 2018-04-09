@@ -6,6 +6,9 @@ using namespace std;
 #include <string.h>
 #include "Exception.hh"
 
+#define TAILLE 1
+
+
 
 template <class Mtype> class CMatrice{
 
@@ -103,11 +106,15 @@ template <class Mtype> class CMatrice{
         CMatrice<Mtype> MATresult(*this);
 
         if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
-            throw Ex
+            throw CException(TAILLE);
         
-
-
-        return *this;
+        for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++){
+            for(uiBoucle2 = 0; uiBoucle2 < uiMATnbLigne; uiBoucle2++){
+                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle1][uiBoucle2] + MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
+            }
+        }
+        
+        return MATresult;
     }
 
     /*CMatrice operator*(double  dVal, CMatrice * MATmat);

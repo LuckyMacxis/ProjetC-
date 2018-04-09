@@ -1,3 +1,3 @@
-all: CMatrice.hh main.cpp
+all: CMatrice.hh main.cpp Exception.hh Exception.cpp
 
-	g++ main.cpp -o main.o
+	g++ main.cpp Exception.cpp -o main.o

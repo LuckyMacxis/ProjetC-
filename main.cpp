@@ -29,10 +29,7 @@ int main(){
 
     matrice2.MATafficherMatrice();
 
-    matrice2 = matrice;
-
-    cout << " = \n";
-    matrice2.MATafficherMatrice();
+    (matrice + matrice2 + matrice2).MATafficherMatrice();
 
     return 0;
 }

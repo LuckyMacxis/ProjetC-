@@ -1,7 +1,8 @@
 #ifndef EXCEPTION
 #define EXCEPTION
-
-#include "constante.hh"
+#include <iostream>
+using namespace std;
+#include <string.h>
 
 class CException
 {
