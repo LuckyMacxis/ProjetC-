@@ -35,5 +35,5 @@ unsigned int CException::uiEXPgetType()
  */
 char * CException::sEXPmessageException()
 {
-    cout << "\nUne Exception a était levée : " << uiEXPtype << "\n";
+    cout << "\nUne Exception a était levée. Exception du type : " << uiEXPtype << "\n";
 }

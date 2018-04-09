@@ -16,20 +16,25 @@ int main(){
 
     for(int i = 0; i<m;i++){
         b[i] = new int[3];
-        for(int j = 0; j < 3; j++){
+        for(int j = 0; j < 2; j++){
             b[i][j] = 1;
         }
     }
 
     CMatrice<int> matrice(a,2,3);
 
-    CMatrice<int> matrice2(b,2,3);
+    CMatrice<int> matrice2(b,2,2);
 
     matrice.MATafficherMatrice();
 
     matrice2.MATafficherMatrice();
 
-    (matrice + matrice2 + matrice2).MATafficherMatrice();
+    try{
+        (matrice + matrice2 + matrice2).MATafficherMatrice();
+    }catch(CException e){
+        e.sEXPmessageException();
+    }
+    
 
     return 0;
 }
