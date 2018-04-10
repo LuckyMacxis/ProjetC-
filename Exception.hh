@@ -38,7 +38,7 @@ class CException
          * 
          * @return char* 
          */
-        char * sEXPmessageException();
+        void sEXPmessageException();
 };
 
 
