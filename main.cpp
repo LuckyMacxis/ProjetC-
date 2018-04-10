@@ -42,13 +42,8 @@ int main(){
 
     matrice.MATafficherMatrice();
 
-    cout << "Matrice B \n";
 
-    matrice2.MATafficherMatrice();
-
-    cout << "Matrice A*B \n";
-
-    (matrice * matrice2).MATafficherMatrice();
+    (matrice / 2).MATafficherMatrice();
     
 
     return 0;

@@ -189,12 +189,41 @@ template <class Mtype> class CMatrice{
         return MATresult;
     }
 
-    /*CMatrice operator*(double  dVal, CMatrice * MATmat);
+    friend CMatrice<Mtype> operator*(double  dVal, CMatrice<Mtype> & MATmat){
+        unsigned int uiBoucle1, uiBoucle2;
+
+        CMatrice<Mtype> MATresult(MATmat);
+
+        for(uiBoucle1 = 0; uiBoucle1 < MATmat.uiMATnbLigne; uiBoucle1++){
+            for(uiBoucle2 = 0; uiBoucle2 < MATmat.uiMATnbColonne; uiBoucle2++){
+                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = dVal * MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
+            }
+        }
+
+        return MATresult;
+    }
+
+    CMatrice<Mtype> operator/(double  dVal){
+        unsigned int uiBoucle1, uiBoucle2;
+
+        if(dVal == 0)
+            throw CException(DIVISION_PAR_ZERO);
+
+        CMatrice<Mtype> MATresult(*this);
+
+        for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
+            for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
+                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] =pMATmatrice[uiBoucle1][uiBoucle2] / dVal;
+            }
+        }
+
+        return MATresult;
+    }
+
+    /*
 
     CMatrice operator/(CMatrice * MATmat);
 
-
-    CMatrice operator/(double  dVal);
 
     CMatrice MATtransposee();
 

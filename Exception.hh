@@ -6,6 +6,7 @@ using namespace std;
 
 
 #define TAILLE_MATRICE_INVALIDE 1
+#define DIVISION_PAR_ZERO 2
 
 class CException
 {
