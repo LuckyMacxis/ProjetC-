@@ -42,8 +42,8 @@ int main(){
 
     matrice.MATafficherMatrice();
 
+    (matrice.MATtransposee()).MATafficherMatrice();
 
-    (matrice / 2).MATafficherMatrice();
     
 
     return 0;

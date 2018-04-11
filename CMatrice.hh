@@ -220,14 +220,25 @@ template <class Mtype> class CMatrice{
         return MATresult;
     }
 
-    /*
+    CMatrice<Mtype> MATtransposee(){
+        unsigned int uiBoucle1, uiBoucle2;
 
-    CMatrice operator/(CMatrice * MATmat);
+        CMatrice<Mtype> MATresult;
+        MATresult.uiMATnbLigne = uiMATnbColonne;
+        MATresult.uiMATnbColonne = uiMATnbLigne;
 
+        MATresult.pMATmatrice = new Mtype*[MATresult.uiMATnbLigne];
 
-    CMatrice MATtransposee();
+        for(uiBoucle1 = 0; uiBoucle1 < MATresult.uiMATnbLigne; uiBoucle1++){
+            MATresult.pMATmatrice[uiBoucle1] = new Mtype[MATresult.uiMATnbColonne];
+            for(uiBoucle2 = 0; uiBoucle2 < MATresult.uiMATnbColonne; uiBoucle2++){
+                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle2][uiBoucle1];
+            }
+        }
 
-    */
+        return MATresult;
+
+    }
 
 };
 
