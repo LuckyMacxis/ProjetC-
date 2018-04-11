@@ -74,7 +74,7 @@ template <class Mtype> class CMatrice{
         cout << '\n';
     }
 
-    CMatrice<Mtype> operator=(CMatrice<Mtype> &MATmatrice){
+        CMatrice<Mtype> & operator=(CMatrice<Mtype> MATmatrice){
         unsigned int uiBoucle1;
         unsigned int uiBoucle2;
 
@@ -97,58 +97,61 @@ template <class Mtype> class CMatrice{
                 pMATmatrice[uiBoucle1][uiBoucle2] = MATmatrice.pMATmatrice[uiBoucle1][uiBoucle2]; 
             }
         }
-    }
-
-    CMatrice<Mtype> operator+(CMatrice<Mtype> MATmat){
-        unsigned int uiBoucle1, uiBoucle2;
-        CMatrice<Mtype> MATresult(*this);
-
-        if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
-            throw CException(TAILLE_MATRICE_INVALIDE);
-        
-        for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
-            for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
-                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle1][uiBoucle2] + MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
-            }
-        }
-        
-        return MATresult;
+        return *this;
     }
 
     
 
-    CMatrice<Mtype> operator-(CMatrice<Mtype> MATmat){
+    CMatrice<Mtype> & operator+(CMatrice<Mtype> & MATmat){
         unsigned int uiBoucle1, uiBoucle2;
-        CMatrice<Mtype> MATresult(*this);
+        CMatrice<Mtype> * MATresult = new CMatrice(*this);
 
         if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
             throw CException(TAILLE_MATRICE_INVALIDE);
         
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
-                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle1][uiBoucle2] - MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
+                MATresult->pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle1][uiBoucle2] + MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
             }
         }
         
-        return MATresult;
+        return *MATresult;
+    }
+
+    
+
+    CMatrice<Mtype> & operator-(CMatrice<Mtype> & MATmat){
+        unsigned int uiBoucle1, uiBoucle2;
+        CMatrice<Mtype> * MATresult = new CMatrice<Mtype>(*this);
+
+        if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
+            throw CException(TAILLE_MATRICE_INVALIDE);
+        
+        for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
+            for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
+                MATresult->pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle1][uiBoucle2] - MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
+            }
+        }
+        
+        return *MATresult;
     }
 
 
-    CMatrice operator*(double  dVal){
+    CMatrice<Mtype> & operator*(double  dVal){
         unsigned int uiBoucle1, uiBoucle2;
 
-        CMatrice<Mtype> MATresult(*this);
+        CMatrice<Mtype> * MATresult = new CMatrice(*this);
 
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
-                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = dVal * pMATmatrice[uiBoucle1][uiBoucle2];
+                MATresult->pMATmatrice[uiBoucle1][uiBoucle2] = dVal * pMATmatrice[uiBoucle1][uiBoucle2];
             }
         }
 
-        return MATresult;
+        return *MATresult;
     }
 
-    CMatrice<Mtype> operator*(CMatrice<Mtype> & MATmat){
+    CMatrice<Mtype> & operator*(CMatrice<Mtype> & MATmat){
         unsigned int uiBoucle1, uiBoucle2, uiBoucle3;
         unsigned int uiNbColonneResult, uiNbLigneResult;
         Mtype ** pMtab;
@@ -178,7 +181,7 @@ template <class Mtype> class CMatrice{
             }
         }
 
-        CMatrice<Mtype>  MATresult(pMtab,uiNbColonneResult,uiNbLigneResult);
+        CMatrice<Mtype> * MATresult = new CMatrice<Mtype>(pMtab,uiNbColonneResult,uiNbLigneResult);
 
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbColonne; uiBoucle1++)
             {
@@ -186,58 +189,57 @@ template <class Mtype> class CMatrice{
             }
             delete []pMtab;
 
-        return MATresult;
+        return *MATresult;
     }
 
-    friend CMatrice<Mtype> operator*(double  dVal, CMatrice<Mtype> & MATmat){
+    friend CMatrice<Mtype> & operator*(double  dVal, CMatrice<Mtype> & MATmat){
         unsigned int uiBoucle1, uiBoucle2;
 
-        CMatrice<Mtype> MATresult(MATmat);
+        CMatrice<Mtype> * MATresult = new CMatrice<Mtype>(MATmat);
 
         for(uiBoucle1 = 0; uiBoucle1 < MATmat.uiMATnbLigne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < MATmat.uiMATnbColonne; uiBoucle2++){
-                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = dVal * MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
+                MATresult->pMATmatrice[uiBoucle1][uiBoucle2] = dVal * MATmat.pMATmatrice[uiBoucle1][uiBoucle2];
             }
         }
 
-        return MATresult;
+        return *MATresult;
     }
 
-    CMatrice<Mtype> operator/(double  dVal){
+    CMatrice<Mtype> & operator/(double  dVal){
         unsigned int uiBoucle1, uiBoucle2;
 
         if(dVal == 0)
             throw CException(DIVISION_PAR_ZERO);
 
-        CMatrice<Mtype> MATresult(*this);
+        CMatrice<Mtype> * MATresult = new CMatrice(*this);
 
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
-                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] =pMATmatrice[uiBoucle1][uiBoucle2] / dVal;
+                MATresult->pMATmatrice[uiBoucle1][uiBoucle2] =pMATmatrice[uiBoucle1][uiBoucle2] / dVal;
             }
         }
 
-        return MATresult;
+        return *MATresult;
     }
 
-    CMatrice<Mtype> MATtransposee(){
+    CMatrice<Mtype> & MATtransposee(){
         unsigned int uiBoucle1, uiBoucle2;
 
-        CMatrice<Mtype> MATresult;
-        MATresult.uiMATnbLigne = uiMATnbColonne;
-        MATresult.uiMATnbColonne = uiMATnbLigne;
+        CMatrice<Mtype> * MATresult = new CMatrice();
+        MATresult->uiMATnbLigne = uiMATnbColonne;
+        MATresult->uiMATnbColonne = uiMATnbLigne;
 
-        MATresult.pMATmatrice = new Mtype*[MATresult.uiMATnbLigne];
+        MATresult->pMATmatrice = new Mtype*[MATresult->uiMATnbLigne];
 
-        for(uiBoucle1 = 0; uiBoucle1 < MATresult.uiMATnbLigne; uiBoucle1++){
-            MATresult.pMATmatrice[uiBoucle1] = new Mtype[MATresult.uiMATnbColonne];
-            for(uiBoucle2 = 0; uiBoucle2 < MATresult.uiMATnbColonne; uiBoucle2++){
-                MATresult.pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle2][uiBoucle1];
+        for(uiBoucle1 = 0; uiBoucle1 < MATresult->uiMATnbLigne; uiBoucle1++){
+            MATresult->pMATmatrice[uiBoucle1] = new Mtype[MATresult->uiMATnbColonne];
+            for(uiBoucle2 = 0; uiBoucle2 < MATresult->uiMATnbColonne; uiBoucle2++){
+                MATresult->pMATmatrice[uiBoucle1][uiBoucle2] = pMATmatrice[uiBoucle2][uiBoucle1];
             }
         }
 
-        return MATresult;
-
+        return *MATresult;
     }
 
 };

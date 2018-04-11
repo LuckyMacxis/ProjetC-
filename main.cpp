@@ -36,15 +36,27 @@ int main(){
         }
     }
 
-    CMatrice<int> matrice2(b,3,2);
+    CMatrice<int> * matric = new CMatrice<int>(b,3,2);
 
     cout << "Matrice A \n";
 
     matrice.MATafficherMatrice();
 
-    (matrice.MATtransposee()).MATafficherMatrice();
+    cout << "Matrice B \n";
 
+    matric->MATafficherMatrice();
+
+    CMatrice<int>  matrice2;
+
+    matrice2 = matric->MATtransposee();
     
+    matrice2.MATafficherMatrice();
+
+    CMatrice<int> * matrice3 = new CMatrice<int>();
+
+    *matrice3 = matric->MATtransposee();
+
+    matrice3->MATafficherMatrice();
 
     return 0;
 }
