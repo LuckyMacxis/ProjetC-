@@ -12,20 +12,28 @@ class CException
 {
     private:
         unsigned int uiEXPtype;
+        string sEXPmessage;
 
     public:
         /**
-         * @brief Construct a new CExeption object
+         * @brief Construit un nouvel objet CException sans paramettre
          * 
          */
         CException();
 
         /**
-         * @brief Construct a new CExeption object
+         * @brief Construit un nouvel object CException a partir d'un int
          * 
-         * @param uiType 
+         * @param uiType un int
          */
         CException(unsigned int uiType);
+
+        /**
+         * @brief Construit un nouvel object CException a partir d'un string
+         * 
+         * @param sTxt Message de l'exception
+         */
+        CException(string sTxt);
 
         /**
          * @brief uiEXPtype's getter

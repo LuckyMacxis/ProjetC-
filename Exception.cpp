@@ -1,13 +1,25 @@
 #include "Exception.hh"
 
 /**
- * @brief Construct a new CExeption::CExeption object
+ * @brief Construit un nouvel objet CException sans paramettre
  * 
  */
 CException::CException()
 {
+    sEXPmessage = "";
     uiEXPtype = 0;
 }
+
+/**
+ * @brief Construit un nouvel object CException a partir d'un string
+ * 
+ * @param sTxt Message de l'exception
+ */
+CException::CException(string sTxt){
+    sEXPmessage = sTxt;
+}
+
+
 /**
  * @brief Construct a new CExeption::CExeption object
  * 
@@ -35,5 +47,10 @@ unsigned int CException::uiEXPgetType()
  */
 void CException::sEXPmessageException()
 {
-    cout << "\nUne Exception a était levée. Exception du type : " << uiEXPtype << "\n";
+    if (sEXPmessage == "" ){
+        cout << "\nUne Exception a était levée. Exception du type : " << uiEXPtype << "\n";
+    }else{
+        cout << sEXPmessage;
+    }
+        
 }

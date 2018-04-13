@@ -107,7 +107,7 @@ template <class Mtype> class CMatrice{
         CMatrice<Mtype> * MATresult = new CMatrice(*this);
 
         if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
-            throw CException(TAILLE_MATRICE_INVALIDE);
+            throw CException("Les deux matrices doivent être de la meme taille");
         
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
@@ -125,7 +125,7 @@ template <class Mtype> class CMatrice{
         CMatrice<Mtype> * MATresult = new CMatrice<Mtype>(*this);
 
         if(MATmat.uiMATnbColonne != uiMATnbColonne || MATmat.uiMATnbLigne != uiMATnbLigne)
-            throw CException(TAILLE_MATRICE_INVALIDE);
+            throw CException("Les deux matrices doivent être de la meme taille");
         
         for(uiBoucle1 = 0; uiBoucle1 < uiMATnbLigne; uiBoucle1++){
             for(uiBoucle2 = 0; uiBoucle2 < uiMATnbColonne; uiBoucle2++){
@@ -159,7 +159,7 @@ template <class Mtype> class CMatrice{
 
         if(uiMATnbColonne != MATmat.uiMATnbLigne
         || uiMATnbLigne != MATmat.uiMATnbColonne){
-            throw CException(TAILLE_MATRICE_INVALIDE);
+            throw CException("taille des matrices imcompatibles pour les multiplier");
         }
 
         uiNbColonneResult = uiMATnbLigne;
@@ -210,7 +210,7 @@ template <class Mtype> class CMatrice{
         unsigned int uiBoucle1, uiBoucle2;
 
         if(dVal == 0)
-            throw CException(DIVISION_PAR_ZERO);
+            throw CException("Division par 0");
 
         CMatrice<Mtype> * MATresult = new CMatrice(*this);
 
