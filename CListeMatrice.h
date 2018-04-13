@@ -7,6 +7,8 @@
 
 #include <fstream>
 
+#include "CMatrice.hh"
+
 #include <string>
 
 using namespace std;

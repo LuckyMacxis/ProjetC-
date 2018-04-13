@@ -3,7 +3,7 @@
 
 #include <iostream>
 using namespace std;
-#include <string.h>
+#include <string>
 #include "Exception.hh"
 
 
