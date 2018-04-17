@@ -1,0 +1,12 @@
+\hypertarget{CMatrice_8hh}{}\section{Référence du fichier C\+Matrice.\+hh}
+\label{CMatrice_8hh}\index{C\+Matrice.\+hh@{C\+Matrice.\+hh}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}Exception.\+hh\char`\"{}}\newline
+Graphe des dépendances par inclusion de C\+Matrice.\+hh\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classCMatrice}{C\+Matrice$<$ Mtype $>$}
+\end{DoxyCompactItemize}

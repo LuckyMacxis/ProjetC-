@@ -8,4 +8,7 @@ var menudata={children:[
 {text:"Fonctions",url:"functions_func.html"},
 {text:"Fonctions associées",url:"functions_rela.html"}]}]},
 {text:"Fichiers",url:"files.html",children:[
-{text:"Liste des fichiers",url:"files.html"}]}]}
+{text:"Liste des fichiers",url:"files.html"},
+{text:"Membres de fichier",url:"globals.html",children:[
+{text:"Tout",url:"globals.html"},
+{text:"Macros",url:"globals_defs.html"}]}]}]}

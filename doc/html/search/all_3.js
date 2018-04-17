@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sexpmessageexception',['sEXPmessageException',['../classCException.html#a7b5dd75546b7c7bf13206633c8237336',1,'CException']]]
+  ['mataffichermatrice',['MATafficherMatrice',['../classCMatrice.html#a448fbaa3f221b599abeb8abf3f289881',1,'CMatrice']]],
+  ['mattransposee',['MATtransposee',['../classCMatrice.html#a0beb5a380bc021fa6abc352fc3d032b7',1,'CMatrice']]]
 ];
