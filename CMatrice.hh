@@ -37,7 +37,7 @@ template <class Mtype> class CMatrice{
      */
     CMatrice<Mtype>(Mtype **pMatrice, unsigned int uiNbLigne, unsigned int uiNbColonne){
 
-        if (**pMatrice)
+        if (!**pMatrice)
             throw CException("Argument null");
         unsigned int uiBoucle1;
         unsigned int uiBoucle2;
@@ -254,8 +254,8 @@ template <class Mtype> class CMatrice{
      * @throw CException si le CMatrice est null
      */
     friend CMatrice<Mtype> & operator*(double  dVal, CMatrice<Mtype> & MATmat){
-        if (MATmat == null)
-            throw new CException(Aguments à null);
+        if (MATmat == NULL)
+            throw CException("Aguments à null");
         unsigned int uiBoucle1, uiBoucle2;
 
         CMatrice<Mtype> * MATresult = new CMatrice<Mtype>(MATmat);

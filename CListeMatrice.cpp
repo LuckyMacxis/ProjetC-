@@ -32,8 +32,8 @@ CMatrice<double> CListeMatrice::LISajouter(string  sChemin)
 
 		getline(monFlux, sligne);
 		stype=sligne.substr(14,15);
-		if (stype.compare("double")!=0)
-			throw CException("Type de la matrice différent de double");
+		/*if (stype.compare("double")!=0)
+			//throw CException("Type de la matrice different de double");*/
 		getline(monFlux, sligne);
 		sligne=sligne.substr(9, 10);
 		iNbLignes = stoi(sligne, nullptr,10);
