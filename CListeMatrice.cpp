@@ -38,8 +38,13 @@ void CListeMatrice::LISajouter(string  sChemin)
 		iNbLignes = stoi(sligne, nullptr,5);
 
 		getline(monFlux, sligne);
+<<<<<<< HEAD
 		sligne = sligne.substr(11, 10);
 		iNbColonnes = stoi(sligne, nullptr, 10);
+=======
+		sligne = sligne.substr(11, 5);
+		iNbColonnes = stoi(sligne, nullptr, 5);
+>>>>>>> 16176a454de09b98519061902298b286c5ef90e5
 
 		getline(monFlux, sligne);
 
@@ -61,11 +66,20 @@ void CListeMatrice::LISajouter(string  sChemin)
 			indicateur++;
 		}
 		uiLIStaille++;
+<<<<<<< HEAD
 		CMatrice<double> Mat(Matrice,iNbLignes,iNbColonnes);
 		Mat.MATafficherMatrice();
 		for (int i = 0; i < iNbLignes; i++)
 			delete[] Matrice[i];
 		delete[] Matrice;
+=======
+		//MatriceList = new CMatrice<double>[uiLIStaille];
+		CMatrice<double> Mat(Matrice,iNbLignes,iNbColonnes);
+		Mat.MATafficherMatrice();
+		/*for (int i = 0; i < iNbLignes; i++)
+			delete[] Matrice[i];
+		delete[] Matrice;*/
+>>>>>>> 16176a454de09b98519061902298b286c5ef90e5
 	}
 	else
 	{
