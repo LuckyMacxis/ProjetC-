@@ -6,11 +6,9 @@
 #include <iostream>
 
 #include <fstream>
-
-#include "CMatrice.hh"
-
 #include <string>
-
+#include "CMatrice.hh"
+#include "Exception.hh"
 using namespace std;
 
 class CListeMatrice {
@@ -23,16 +21,12 @@ public:
 
 	virtual void LISviderListe();
 
-	virtual void LISajouter(string  sChemin);
+	CMatrice<double> LISajouter(string  sChemin);
 
 
 private:
 	unsigned int uiLIStaille;
-
-	/**
-	 * @element-type CMatrice
-	 */
-	 // std::vector< CMatrice* > myCMatrice;
+	CMatrice<double>* MatriceList;
 };
 
 #endif // CListeMatrice_h
