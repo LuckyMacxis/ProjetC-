@@ -17,14 +17,28 @@ template <class Mtype> class CMatrice{
 
     public:
 
-    //Constructeurs
+    /**
+     * @brief Construit un nouvel object CMatrice<Mtype> sans parrametre
+     * le nombre de ligne et de colonne sont mis à 0, et le tableau à null.
+     */
     CMatrice<Mtype>(){
         uiMATnbColonne = 0;
         uiMATnbLigne = 0;
         pMATmatrice = NULL;
     }
 
+    /**
+     * @brief Construit un nouvel object CMatrice<Mtype> avec tous les parametres possibles
+     * 
+     * @param pMatrice un tableau de pointeur de Mtype qui represente les valeurs de la matrice.
+     * @param uiNbLigne le nombre de ligne de la matrice
+     * @param uiNbColonne le nombre de colonne de la matrice
+     * @throw CException si le tableau de pointeur est null.
+     */
     CMatrice<Mtype>(Mtype **pMatrice, unsigned int uiNbLigne, unsigned int uiNbColonne){
+
+        if (**pMatrice)
+            throw CException("Argument null");
         unsigned int uiBoucle1;
         unsigned int uiBoucle2;
 
@@ -43,6 +57,11 @@ template <class Mtype> class CMatrice{
 
     }
 
+    /**
+     * @brief Constructeur de copy
+     * 
+     * @param MATmatrice un Object CMatrice<Mtype> à partir duquel creer un nouvel object CMatrice<Mtype>
+     */
     CMatrice<Mtype>(CMatrice<Mtype> &MATmatrice){
         unsigned int uiBoucle1;
         unsigned int uiBoucle2;
@@ -61,6 +80,10 @@ template <class Mtype> class CMatrice{
         }
     }
 
+    /**
+     * @brief affiche une matrice dans le terminal
+     * 
+     */
     void MATafficherMatrice(){
         unsigned int uiBoucle1;
         unsigned int uiBoucle2;
@@ -74,6 +97,12 @@ template <class Mtype> class CMatrice{
         cout << '\n';
     }
 
+        /**
+         * @brief operateur d'affectation
+         * si la matrice a gauche était deja alloue, alors elle sera tout d'abord desaloue
+         * @param MATmatrice un Object CMatrice
+         * @return CMatrice<Mtype>& un nouvel object CMatrice deja alloue.
+         */
         CMatrice<Mtype> & operator=(CMatrice<Mtype> MATmatrice){
         unsigned int uiBoucle1;
         unsigned int uiBoucle2;
@@ -101,7 +130,13 @@ template <class Mtype> class CMatrice{
     }
 
     
-
+    /**
+     * @brief operateur d'addition
+     * Cette operateur ne modifie pas les valeurs des deux operandes
+     * @param MATmat une CMatrice
+     * @return CMatrice<Mtype>& un nouvel object CMatrice deja alloue
+     * @throw CException si les deux matrices ne sont pas de la même taille
+     */
     CMatrice<Mtype> & operator+(CMatrice<Mtype> & MATmat){
         unsigned int uiBoucle1, uiBoucle2;
         CMatrice<Mtype> * MATresult = new CMatrice(*this);
@@ -119,7 +154,13 @@ template <class Mtype> class CMatrice{
     }
 
     
-
+    /**
+     * @brief operateur de soustraction
+     * Cette operateur ne modifie pas les valeurs des deux operandes
+     * @param MATmat une CMatrice
+     * @return CMatrice<Mtype>& un nouvel object CMatrice deja alloue
+     * @throw CException si les deux matrices ne sont pas de la même taille
+     */
     CMatrice<Mtype> & operator-(CMatrice<Mtype> & MATmat){
         unsigned int uiBoucle1, uiBoucle2;
         CMatrice<Mtype> * MATresult = new CMatrice<Mtype>(*this);
@@ -136,7 +177,12 @@ template <class Mtype> class CMatrice{
         return *MATresult;
     }
 
-
+    /**
+     * @brief operateur de multiplication entre un CMatrice et un double
+     * Cette operateur de modifie pas les valeurs des deux operandes
+     * @param dVal un double
+     * @return CMatrice<Mtype>& un nouvel object CMatrice deja alloue
+     */
     CMatrice<Mtype> & operator*(double  dVal){
         unsigned int uiBoucle1, uiBoucle2;
 
@@ -151,6 +197,13 @@ template <class Mtype> class CMatrice{
         return *MATresult;
     }
 
+    /**
+     * @brief operateur de multiplication entre deux CMatrices
+     * Cette operateur ne modifie pas les valeurs des deux operandes
+     * @param MATmat un CMatrice
+     * @return CMatrice<Mtype>& Un nouvel object CMatrice deja alloue
+     * @throw CException si les deux matrices n'ont pas les bonnes tailles pour être multiplie
+     */
     CMatrice<Mtype> & operator*(CMatrice<Mtype> & MATmat){
         unsigned int uiBoucle1, uiBoucle2, uiBoucle3;
         unsigned int uiNbColonneResult, uiNbLigneResult;
@@ -192,7 +245,17 @@ template <class Mtype> class CMatrice{
         return *MATresult;
     }
 
+    /**
+     * @brief operateur de multiplication entre un double et un CMatrice
+     * Cette operateur de modifie pas les valeurs des deux operandes
+     * @param dVal un double
+     * @param MATmat un CMatrice correctement alloue et initialise
+     * @return CMatrice<Mtype>& un nouvel object CMatrice deja alloue
+     * @throw CException si le CMatrice est null
+     */
     friend CMatrice<Mtype> & operator*(double  dVal, CMatrice<Mtype> & MATmat){
+        if (MATmat == null)
+            throw new CException(Aguments à null);
         unsigned int uiBoucle1, uiBoucle2;
 
         CMatrice<Mtype> * MATresult = new CMatrice<Mtype>(MATmat);
@@ -223,6 +286,11 @@ template <class Mtype> class CMatrice{
         return *MATresult;
     }
 
+    /**
+     * @brief faire la transposé d'une matrice
+     * Le CMatrice d'origine n'est pas modifie
+     * @return CMatrice<Mtype>& un nouvel object CMatrice deja alloue
+     */
     CMatrice<Mtype> & MATtransposee(){
         unsigned int uiBoucle1, uiBoucle2;
 

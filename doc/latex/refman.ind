@@ -1,0 +1,42 @@
+\begin{theindex}
+
+  \item {C\+Exception}, \hyperpage{3}
+    \subitem {C\+Exception}, \hyperpage{3}
+    \subitem {s\+E\+X\+Pmessage\+Exception}, \hyperpage{4}
+    \subitem {ui\+E\+X\+Pget\+Type}, \hyperpage{4}
+  \item {C\+Matrice}
+    \subitem {C\+Matrice}, \hyperpage{5, 6}
+    \subitem {M\+A\+Ttransposee}, \hyperpage{6}
+    \subitem {operator$\ast$}, \hyperpage{6--8}
+    \subitem {operator+}, \hyperpage{7}
+    \subitem {operator-\/}, \hyperpage{7}
+    \subitem {operator=}, \hyperpage{8}
+  \item {C\+Matrice$<$ Mtype $>$}, \hyperpage{5}
+
+  \indexspace
+
+  \item {M\+A\+Ttransposee}
+    \subitem {C\+Matrice}, \hyperpage{6}
+
+  \indexspace
+
+  \item {operator$\ast$}
+    \subitem {C\+Matrice}, \hyperpage{6--8}
+  \item {operator+}
+    \subitem {C\+Matrice}, \hyperpage{7}
+  \item {operator-\/}
+    \subitem {C\+Matrice}, \hyperpage{7}
+  \item {operator=}
+    \subitem {C\+Matrice}, \hyperpage{8}
+
+  \indexspace
+
+  \item {s\+E\+X\+Pmessage\+Exception}
+    \subitem {C\+Exception}, \hyperpage{4}
+
+  \indexspace
+
+  \item {ui\+E\+X\+Pget\+Type}
+    \subitem {C\+Exception}, \hyperpage{4}
+
+\end{theindex}
