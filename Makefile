@@ -1,3 +1,3 @@
-all: CMatrice.hh main.cpp Exception.hh Exception.cpp CListeMatrice.h CListeMatrice.cpp
+all: CMatrice.hh main.cpp Exception.hh Exception.cpp
 
-	g++ -Wall main.cpp Exception.cpp CListeMatrice.cpp -o main.o
+	g++ main.cpp Exception.cpp -o main.o

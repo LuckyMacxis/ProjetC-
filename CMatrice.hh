@@ -2,9 +2,11 @@
 #define CMatrice_h
 
 #include <iostream>
-using namespace std;
+#include <fstream>
 #include <string>
+#include "CMatrice.hh"
 #include "Exception.hh"
+using namespace std;
 
 
 
@@ -308,6 +310,75 @@ template <class Mtype> class CMatrice{
         }
 
         return *MATresult;
+    }
+
+
+
+    static CMatrice<double> MATlireFichier(string  sChemin)
+    {
+        ifstream monFlux(sChemin);  //Ouverture du fichier en lecture
+        if (monFlux)
+        {
+            string stype;
+            unsigned int iNbLignes, iNbColonnes;
+            string sligne;
+
+            getline(monFlux, sligne);
+            stype=sligne.substr(14,15);
+            /*if (stype.compare("double")!=0)
+                //throw CException("Type de la matrice different de double");*/
+            getline(monFlux, sligne);
+            sligne=sligne.substr(9, 10);
+            iNbLignes = stoi(sligne, nullptr,10);
+            
+            getline(monFlux, sligne);
+            sligne = sligne.substr(11, 10);
+            iNbColonnes = stoi(sligne, nullptr, 10);
+            getline(monFlux, sligne);
+            double **Matrice = new double*[iNbLignes];
+            for (int i = 0; i < iNbLignes; i++)
+                Matrice[i] = new double[iNbColonnes];
+            int indicateur=0;
+            int indexMat;
+            while (indicateur != iNbLignes)
+            {
+                getline(monFlux, sligne);
+                int i;
+                indexMat = 0;
+                i = 0;
+                int indextemp;
+                char temp0[50];
+                    while (sligne[i] != '\0')
+                    {
+                        indextemp = 0;
+                        while (sligne[i] == ' ' && sligne[i] != '\0')
+                        {
+                            i++;
+                        }
+                        while (sligne[i] != ' ' && sligne[i] != '\0')
+                        {
+                            temp0[indextemp] = sligne[i];
+                            indextemp++;
+                            i++;
+                        }
+                        string temp(temp0);
+                        Matrice[indicateur][indexMat] = stod(temp0);
+                        indexMat++;
+                        for (int j = 0; j < 50; j++)
+                            temp0[j] = ' ';
+                        }
+                        indicateur++;
+            }
+            CMatrice<double>* Mat = new CMatrice<double>(Matrice, iNbLignes, iNbColonnes);
+            for (int i = 0; i < iNbLignes; i++)
+                delete[] Matrice[i];
+            delete[] Matrice;
+            return Mat;
+        }
+        else
+        {
+            cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+        }
     }
 
 };

@@ -5,9 +5,10 @@
 int main(){
 
     try{
-        CListeMatrice *lis = new CListeMatrice();
-    string chemin = "Test.txt";
-    lis->LISajouter(chemin);
+        string chemin = "Test.txt";
+        CMatrice<double> *Matrice;
+        Matrice->MATafficherMatrice();
+    
     }catch(CException e){
         e.sEXPmessageException();
     }
