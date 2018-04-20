@@ -312,70 +312,80 @@ template <class Mtype> class CMatrice{
         return *MATresult;
     }
 
+    /**
+     * @brief lit un fichier et retourne un object CMatrice<double>
+     * 
+     * @param sChemin char*
+     * @return CMatrice<double>* un pointeur vers un CMatrice<double> déja alloué
+     */
     static CMatrice<double>* MATlireFichier(char*  sChemin)
     {
-        ifstream monFlux(sChemin);  //Ouverture du fichier en lecture
-        if (monFlux)
-        {
-            string stype;
-            unsigned int iNbLignes, iNbColonnes;
-            string sligne;
-
-            getline(monFlux, sligne);
-            stype=sligne.substr(14,15);
-            /*if (stype.compare("double")!=0)
-                //throw CException("Type de la matrice different de double");*/
-            getline(monFlux, sligne);
-            sligne=sligne.substr(9, 10);
-            iNbLignes = stoi(sligne, nullptr,10);
-            
-            getline(monFlux, sligne);
-            sligne = sligne.substr(11, 10);
-            iNbColonnes = stoi(sligne, nullptr, 10);
-            getline(monFlux, sligne);
-            double **Matrice = new double*[iNbLignes];
-            for (int i = 0; i < iNbLignes; i++)
-                Matrice[i] = new double[iNbColonnes];
-            int indicateur=0;
-            int indexMat;
-            while (indicateur != iNbLignes)
+        try{
+            ifstream monFlux(sChemin);  //Ouverture du fichier en lecture
+            if (monFlux)
             {
+                string stype;
+                unsigned int iNbLignes, iNbColonnes;
+                string sligne;
+
                 getline(monFlux, sligne);
-                int i;
-                indexMat = 0;
-                i = 0;
-                int indextemp;
-                char temp0[50];
-                    while (sligne[i] != '\0')
-                    {
-                        indextemp = 0;
-                        while (sligne[i] == ' ' && sligne[i] != '\0')
+                stype=sligne.substr(14,15);
+                
+                getline(monFlux, sligne);
+                sligne=sligne.substr(9, 10);
+                iNbLignes = stoi(sligne, nullptr,10);
+                
+                getline(monFlux, sligne);
+                sligne = sligne.substr(11, 10);
+                iNbColonnes = stoi(sligne, nullptr, 10);
+                getline(monFlux, sligne);
+                double **Matrice = new double*[iNbLignes];
+                for (int i = 0; i < iNbLignes; i++)
+                    Matrice[i] = new double[iNbColonnes];
+                int indicateur=0;
+                int indexMat;
+                while (indicateur != iNbLignes)
+                {
+                    getline(monFlux, sligne);
+                    int i;
+                    indexMat = 0;
+                    i = 0;
+                    int indextemp;
+                    char temp0[50];
+                        while (sligne[i] != '\0')
                         {
-                            i++;
-                        }
-                        while (sligne[i] != ' ' && sligne[i] != '\0')
-                        {
-                            temp0[indextemp] = sligne[i];
-                            indextemp++;
-                            i++;
-                        }
-                        string temp(temp0);
-                        Matrice[indicateur][indexMat] = stod(temp0);
-                        indexMat++;
-                        for (int j = 0; j < 50; j++)
-                            temp0[j] = ' ';
-                        }
-                        indicateur++;
+                            indextemp = 0;
+                            while (sligne[i] == ' ' && sligne[i] != '\0')
+                            {
+                                i++;
+                            }
+                            while (sligne[i] != ' ' && sligne[i] != '\0')
+                            {
+                                temp0[indextemp] = sligne[i];
+                                indextemp++;
+                                i++;
+                            }
+                            string temp(temp0);
+                            Matrice[indicateur][indexMat] = stod(temp0);
+                            indexMat++;
+                            for (int j = 0; j < 50; j++)
+                                temp0[j] = ' ';
+                            }
+                            indicateur++;
+                }
+                CMatrice<double>* Mat = new CMatrice<double>(Matrice, iNbLignes, iNbColonnes);
+                for (int i = 0; i < iNbLignes; i++)
+                    delete[] Matrice[i];
+                delete[] Matrice;
+                return Mat;
             }
-            CMatrice<double>* Mat = new CMatrice<double>(Matrice, iNbLignes, iNbColonnes);
-            for (int i = 0; i < iNbLignes; i++)
-                delete[] Matrice[i];
-            delete[] Matrice;
-            return Mat;
-        }
-        else
-        {
-            cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+            else
+            {
+                throw CException("Impossible d'ouvrir le fichier en lecture");
+                cout << "ERREUR: Impossible d'ouvrir le fichier en lecture." << endl;
+            }
+        }catch(exception e){
+        throw CException("Erreur lors de la lecture du fichier");
         }
     }
 
