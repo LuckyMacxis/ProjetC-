@@ -312,9 +312,7 @@ template <class Mtype> class CMatrice{
         return *MATresult;
     }
 
-
-
-    static CMatrice<double> MATlireFichier(string  sChemin)
+    static CMatrice<double>* MATlireFichier(char*  sChemin)
     {
         ifstream monFlux(sChemin);  //Ouverture du fichier en lecture
         if (monFlux)
