@@ -33,6 +33,11 @@ void \hyperlink{classCMatrice_a448fbaa3f221b599abeb8abf3f289881}{M\+A\+Tafficher
 \item 
 \hyperlink{classCMatrice}{C\+Matrice}$<$ Mtype $>$ \& \hyperlink{classCMatrice_a0beb5a380bc021fa6abc352fc3d032b7}{M\+A\+Ttransposee} ()
 \begin{DoxyCompactList}\small\item\em faire la transposé d\textquotesingle{}une matrice Le \hyperlink{classCMatrice}{C\+Matrice} d\textquotesingle{}origine n\textquotesingle{}est pas modifie \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions membres publiques statiques}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classCMatrice}{C\+Matrice}$<$ double $>$ $\ast$ \hyperlink{classCMatrice_a690dad053281a665cba4c7d75215e803}{M\+A\+Tlire\+Fichier} (char $\ast$s\+Chemin)
+\begin{DoxyCompactList}\small\item\em lit un fichier et retourne un object C\+Matrice$<$double$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Amis}
 \begin{DoxyCompactItemize}
 \item 
@@ -107,6 +112,30 @@ void \hyperlink{classCMatrice}{C\+Matrice}$<$ Mtype $>$\+::M\+A\+Tafficher\+Matr
 
 affiche une matrice dans le terminal 
 
+\mbox{\Hypertarget{classCMatrice_a690dad053281a665cba4c7d75215e803}\label{classCMatrice_a690dad053281a665cba4c7d75215e803}} 
+\index{C\+Matrice@{C\+Matrice}!M\+A\+Tlire\+Fichier@{M\+A\+Tlire\+Fichier}}
+\index{M\+A\+Tlire\+Fichier@{M\+A\+Tlire\+Fichier}!C\+Matrice@{C\+Matrice}}
+\subsubsection{\texorpdfstring{M\+A\+Tlire\+Fichier()}{MATlireFichier()}}
+{\footnotesize\ttfamily template$<$class Mtype$>$ \\
+static \hyperlink{classCMatrice}{C\+Matrice}$<$double$>$$\ast$ \hyperlink{classCMatrice}{C\+Matrice}$<$ Mtype $>$\+::M\+A\+Tlire\+Fichier (\begin{DoxyParamCaption}\item[{char $\ast$}]{s\+Chemin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+lit un fichier et retourne un object C\+Matrice$<$double$>$ 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em s\+Chemin} & char$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+C\+Matrice$<$double$>$$\ast$ un pointeur vers un C\+Matrice$<$double$>$ déja alloué 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em C\+Exeption} & Si le fichier n\textquotesingle{}est pas dans le bon format \\
+\hline
+\end{DoxyExceptions}
 \mbox{\Hypertarget{classCMatrice_a0beb5a380bc021fa6abc352fc3d032b7}\label{classCMatrice_a0beb5a380bc021fa6abc352fc3d032b7}} 
 \index{C\+Matrice@{C\+Matrice}!M\+A\+Ttransposee@{M\+A\+Ttransposee}}
 \index{M\+A\+Ttransposee@{M\+A\+Ttransposee}!C\+Matrice@{C\+Matrice}}

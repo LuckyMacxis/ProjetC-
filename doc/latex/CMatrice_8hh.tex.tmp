@@ -1,10 +1,14 @@
 \hypertarget{CMatrice_8hh}{}\section{Référence du fichier C\+Matrice.\+hh}
 \label{CMatrice_8hh}\index{C\+Matrice.\+hh@{C\+Matrice.\+hh}}
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include \char`\"{}C\+Matrice.\+hh\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}Exception.\+hh\char`\"{}}\newline
 Graphe des dépendances par inclusion de C\+Matrice.\+hh\+:
 % FIG 0
+Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier \+:
+% FIG 1
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 

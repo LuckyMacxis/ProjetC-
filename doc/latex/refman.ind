@@ -7,12 +7,13 @@
   \item {C\+Matrice}
     \subitem {C\+Matrice}, \hyperpage{7, 8}
     \subitem {M\+A\+Tafficher\+Matrice}, \hyperpage{8}
-    \subitem {M\+A\+Ttransposee}, \hyperpage{8}
-    \subitem {operator$\ast$}, \hyperpage{8, 9}, \hyperpage{11}
-    \subitem {operator+}, \hyperpage{9}
+    \subitem {M\+A\+Tlire\+Fichier}, \hyperpage{8}
+    \subitem {M\+A\+Ttransposee}, \hyperpage{9}
+    \subitem {operator$\ast$}, \hyperpage{9--11}
+    \subitem {operator+}, \hyperpage{10}
     \subitem {operator-\/}, \hyperpage{10}
-    \subitem {operator/}, \hyperpage{10}
-    \subitem {operator=}, \hyperpage{10}
+    \subitem {operator/}, \hyperpage{11}
+    \subitem {operator=}, \hyperpage{11}
   \item {C\+Matrice$<$ Mtype $>$}, \hyperpage{7}
   \item {C\+Matrice.\+hh}, \hyperpage{13}
 
@@ -33,21 +34,23 @@
 
   \item {M\+A\+Tafficher\+Matrice}
     \subitem {C\+Matrice}, \hyperpage{8}
-  \item {M\+A\+Ttransposee}
+  \item {M\+A\+Tlire\+Fichier}
     \subitem {C\+Matrice}, \hyperpage{8}
+  \item {M\+A\+Ttransposee}
+    \subitem {C\+Matrice}, \hyperpage{9}
 
   \indexspace
 
   \item {operator$\ast$}
-    \subitem {C\+Matrice}, \hyperpage{8, 9}, \hyperpage{11}
+    \subitem {C\+Matrice}, \hyperpage{9--11}
   \item {operator+}
-    \subitem {C\+Matrice}, \hyperpage{9}
+    \subitem {C\+Matrice}, \hyperpage{10}
   \item {operator-\/}
     \subitem {C\+Matrice}, \hyperpage{10}
   \item {operator/}
-    \subitem {C\+Matrice}, \hyperpage{10}
+    \subitem {C\+Matrice}, \hyperpage{11}
   \item {operator=}
-    \subitem {C\+Matrice}, \hyperpage{10}
+    \subitem {C\+Matrice}, \hyperpage{11}
 
   \indexspace
 

@@ -61,6 +61,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a> &#124;
 <a href="#friends">Amis</a> &#124;
 <a href="classCMatrice-members.html">Liste de tous les membres</a>  </div>
   <div class="headertitle">
@@ -110,6 +111,12 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="memitem:a0beb5a380bc021fa6abc352fc3d032b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCMatrice.html">CMatrice</a>&lt; Mtype &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMatrice.html#a0beb5a380bc021fa6abc352fc3d032b7">MATtransposee</a> ()</td></tr>
 <tr class="memdesc:a0beb5a380bc021fa6abc352fc3d032b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">faire la transposé d'une matrice Le <a class="el" href="classCMatrice.html">CMatrice</a> d'origine n'est pas modifie  <a href="#a0beb5a380bc021fa6abc352fc3d032b7">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a0beb5a380bc021fa6abc352fc3d032b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Fonctions membres publiques statiques</h2></td></tr>
+<tr class="memitem:a690dad053281a665cba4c7d75215e803"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classCMatrice.html">CMatrice</a>&lt; double &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCMatrice.html#a690dad053281a665cba4c7d75215e803">MATlireFichier</a> (char *sChemin)</td></tr>
+<tr class="memdesc:a690dad053281a665cba4c7d75215e803"><td class="mdescLeft">&#160;</td><td class="mdescRight">lit un fichier et retourne un object CMatrice&lt;double&gt;  <a href="#a690dad053281a665cba4c7d75215e803">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a690dad053281a665cba4c7d75215e803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Amis</h2></td></tr>
@@ -270,6 +277,49 @@ template&lt;class Mtype&gt; </div>
 </div><div class="memdoc">
 
 <p>affiche une matrice dans le terminal </p>
+
+</div>
+</div>
+<a id="a690dad053281a665cba4c7d75215e803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690dad053281a665cba4c7d75215e803">&#9670;&nbsp;</a></span>MATlireFichier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Mtype&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classCMatrice.html">CMatrice</a>&lt;double&gt;* <a class="el" href="classCMatrice.html">CMatrice</a>&lt; Mtype &gt;::MATlireFichier </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>sChemin</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>lit un fichier et retourne un object CMatrice&lt;double&gt; </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sChemin</td><td>char* </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>CMatrice&lt;double&gt;* un pointeur vers un CMatrice&lt;double&gt; déja alloué </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">CExeption</td><td>Si le fichier n'est pas dans le bon format </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

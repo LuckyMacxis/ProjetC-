@@ -317,6 +317,7 @@ template <class Mtype> class CMatrice{
      * 
      * @param sChemin char*
      * @return CMatrice<double>* un pointeur vers un CMatrice<double> déja alloué
+     * @throw CExeption Si le fichier n'est pas dans le bon format 
      */
     static CMatrice<double>* MATlireFichier(char*  sChemin)
     {
